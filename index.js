@@ -49,9 +49,8 @@ class WM {
         return -1;
     }
     rangemax(_s, _e, k) {
-        var i = 8 - 3;
         var s = _s, e = _e;
-        for (var i = 8 - 3; i < 8; i++) {
+        for (var i = 0; i < 8; i++) {
             if (this.bitSequence[i].rank(e) - this.bitSequence[i].rank(s) > 0) {
                 e = this.zeroOffset[i] + this.bitSequence[i].rank(e);
                 s = this.zeroOffset[i] + this.bitSequence[i].rank(s);
