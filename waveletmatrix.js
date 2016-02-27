@@ -77,3 +77,4 @@ function bucketsort(_src, digit) {
     }
     return dst;
 }
+module.exports = WM;
