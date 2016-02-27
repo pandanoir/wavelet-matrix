@@ -39,7 +39,16 @@ class WM {
         console.log(n, this.startPoint, key);
         return n - this.startPoint[key];
     }
-    select(n) {
+    select(n, key) {
+        var len = this.matrix.length;
+        var start = 1, end = len;
+        while (start < end) {
+            var mid = 0 | (start + end) / 2;
+            if (this.rank(mid, key) < n) start = mid + 1;
+            else if (this.rank(mid, key) >= n) end = mid;
+        }
+        if (this.rank(start, key) === n) return start;
+        return -1;
     }
 }
 function copy(array) {
