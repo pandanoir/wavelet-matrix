@@ -6,16 +6,16 @@ class WM {
         this.bitSequence = [];
         this.zeroOffset = [];
         this.startPoint = [];
-        var sorted = this.matrix;
-        for (let n = 4; n >= 1; n--) {
-            this.bitSequence.push(sorted.map(function(val) {return bit(val, n)}));
-            sorted = bucketsort(sorted, n);
+        this.sorted = this.matrix;
+        for (let n = 8; n >= 1; n--) {
+            this.bitSequence.push(this.sorted.map(function(val) {return bit(val, n)}));
+            this.sorted = bucketsort(this.sorted, n);
         }
-        this.startPoint[sorted[0]] = 0;
-        for (let i = 0, _i = sorted.length, before = sorted[0]; i < _i; i++) {
-            if (sorted[i] !== before) {
-                this.startPoint[sorted[i]] = i;
-                before = sorted[i];
+        this.startPoint[this.sorted[0]] = 0;
+        for (let i = 0, _i = this.sorted.length, before = this.sorted[0]; i < _i; i++) {
+            if (this.sorted[i] !== before) {
+                this.startPoint[this.sorted[i]] = i;
+                before = this.sorted[i];
             }
         }
         this.bitSequence = this.bitSequence.map(function(matrix) {
@@ -47,6 +47,20 @@ class WM {
         }
         if (this.rank(start, key) === n) return start - 1;
         return -1;
+    }
+    rangemax(_s, _e, k) {
+        var i = 8 - 3;
+        var s = _s, e = _e;
+        for (var i = 8 - 3; i < 8; i++) {
+            if (this.bitSequence[i].rank(e) - this.bitSequence[i].rank(s) > 0) {
+                e = this.zeroOffset[i] + this.bitSequence[i].rank(e);
+                s = this.zeroOffset[i] + this.bitSequence[i].rank(s);
+            } else {
+                e = this.bitSequence[i].rank0(e);
+                s = this.bitSequence[i].rank0(s);
+            }
+        }
+        return this.sorted[s];
     }
 }
 function copy(array) {
