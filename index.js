@@ -45,7 +45,7 @@ class WM {
             if (this.rank(mid, key) < n) start = mid + 1;
             else if (this.rank(mid, key) >= n) end = mid;
         }
-        if (this.rank(start, key) === n) return start;
+        if (this.rank(start, key) === n) return start - 1;
         return -1;
     }
 }
