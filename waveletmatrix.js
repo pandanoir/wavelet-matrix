@@ -1,5 +1,5 @@
 'use strict';
-var FID = require('./');
+var FID = require('fid');
 class WM {
     constructor(array) {
         this.matrix = copy(array);

@@ -1,0 +1,19 @@
+{
+  "name": "wavelet-matrix",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pandanoir/wavelet-matrix.git"
+  },
+  "author": "Naoto Ikuno <moon_in_france@yahoo.co.jp>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pandanoir/wavelet-matrix/issues"
+  },
+  "homepage": "https://github.com/pandanoir/wavelet-matrix#readme"
+}
