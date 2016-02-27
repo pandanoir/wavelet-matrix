@@ -61,6 +61,21 @@ class WM {
         }
         return this.sorted[s];
     }
+    quantile(_s, _e, _k) {
+        var s = _s, e = _e, k = _k;
+        for (let i = 0, _i = this.bitSequence.length; i < _i; i++) {
+            let ones = this.bitSequence[i].rank(e) - this.bitSequence[i].rank(s);
+            if (ones >= k) {
+                e = this.zeroOffset[i] + this.bitSequence[i].rank(e);
+                s = this.zeroOffset[i] + this.bitSequence[i].rank(s);
+            } else {
+                k -= ones;
+                e = this.bitSequence[i].rank0(e);
+                s = this.bitSequence[i].rank0(s);
+            }
+        }
+        return this.sorted[s];
+    }
 }
 function copy(array) {
     return array.concat();
