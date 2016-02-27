@@ -48,6 +48,9 @@ class WM {
         if (this.rank(start, key) === n) return start - 1;
         return -1;
     }
+    access(i) {
+        return this.matrix[i];
+    }
     rangemax(_s, _e, k) {
         if (k >= _e - _s) return this.matrix.slice(_s, _e).sort();
         var s = _s, e = _e;
