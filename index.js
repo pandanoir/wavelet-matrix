@@ -49,6 +49,7 @@ class WM {
         return -1;
     }
     rangemax(_s, _e, k) {
+        if (k >= _e - _s) return this.matrix.slice(_s, _e).sort();
         var s = _s, e = _e;
         for (var i = 0; i < 8; i++) {
             if (this.bitSequence[i].rank(e) - this.bitSequence[i].rank(s) > 0) {
