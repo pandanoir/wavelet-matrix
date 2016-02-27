@@ -18,7 +18,6 @@ class WM {
                 before = sorted[i];
             }
         }
-        console.log(JSON.stringify(this.bitSequence));
         this.bitSequence = this.bitSequence.map(function(matrix) {
             return new FID(matrix);
         });
@@ -36,7 +35,6 @@ class WM {
                 n = n - this.bitSequence[i].rank(n);
             }
         }
-        console.log(n, this.startPoint, key);
         return n - this.startPoint[key];
     }
     select(n, key) {
